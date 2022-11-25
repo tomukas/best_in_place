@@ -106,7 +106,7 @@ module BestInPlace
       elsif opts[:display_with]
         BestInPlace::DisplayMethods.add_helper_method(klass, field, opts[:display_with], opts[:helper_options])
         if opts[:helper_options]
-          BestInPlace::ViewHelpers.send(opts[:display_with], object.send(field), opts[:helper_options])
+          BestInPlace::ViewHelpers.send(opts[:display_with], object.send(field), **opts[:helper_options])
         else
           field_value = object.send(field)
 
