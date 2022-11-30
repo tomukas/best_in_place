@@ -9,7 +9,7 @@ module BestInPlace
             { display_as: object.send(opts[:method]) }.to_json
           when :helper
             value = if opts[:helper_options]
-                      BestInPlace::ViewHelpers.send(opts[:method], object.send(opts[:attr]), opts[:helper_options])
+                      BestInPlace::ViewHelpers.send(opts[:method], object.send(opts[:attr]), **opts[:helper_options])
                     else
                       BestInPlace::ViewHelpers.send(opts[:method], object.send(opts[:attr]))
                     end
